@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	printf("test1\n");
+	printf("this is watched!\n");
 }
 

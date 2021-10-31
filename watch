@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+inotifywait -m . --exclude "[^ch]$|[^.].$" -e close_write |
+	while read dir action file; do
+		echo "The file '$file' appeared in directory '$dir' via '$action'"
+		OUT="${file%%.*}"
+		cc -o $OUT $file
+		./$OUT
+	done
